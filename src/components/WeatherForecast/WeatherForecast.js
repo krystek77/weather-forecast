@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './WeatherForecast.css';
 import WeatherForm from './WeatherForm/WeatherForm';
-import Weather from './Weather/Weather'
+import Weather from './Weather/Weather';
+import Button from '../Button/Button';
 
 //API KEY
 const APPID = '8dbe00c7e7feb140202cb4fd7e1a80b4'
@@ -81,6 +82,24 @@ class WeatherForecast extends Component {
     //     console.log({prevState})
     // }
 
+    resetHandler=(e)=>{
+        console.log('reset')
+        this.setState({
+            value:"",
+            main:"",
+            temperature:"",
+            humidity:"",
+            wind:"",
+            sunrise:"",
+            sunset:"",
+            pressure:"",
+            date:"",
+            city:"",
+            error:"",
+            errorStatus:""
+        })
+    }
+
     render(){
         // console.log('render')
         return (
@@ -93,6 +112,8 @@ class WeatherForecast extends Component {
                 />
                 <Weather weather={this.state}/>
                 {String("Did the error occur? "+this.state.error)}
+                {this.state.error && <Button clicked={this.resetHandler}
+                btnClass="Reset">Reset</Button>}
             </div>
         )
     }

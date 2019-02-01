@@ -11,7 +11,9 @@ const weatherForm = props => {
                 onChange={props.change}
                 type="text" 
                 placeholder="Wpisz miasto..."/>
-            <Button btnClass="CheckWeather">Sprawdź pogodę</Button>
+            <div>
+                <Button btnClass="CheckWeather">Sprawdź pogodę</Button>
+            </div>
         </form>
     )
 }
