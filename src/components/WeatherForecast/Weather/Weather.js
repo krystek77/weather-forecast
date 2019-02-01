@@ -20,7 +20,7 @@ const weather = props =>{
     if(!error && city) {    
         content = (
             <table className="Weather">
-            <caption><h2>Pogoda w mieście: <em>{value}</em></h2></caption>
+            <caption><h2>Pogoda w mieście: <em>{value.toUpperCase()}</em></h2></caption>
                 <tbody>
                     <tr>
                         <th colSpan="2">Dzień i godzina</th>

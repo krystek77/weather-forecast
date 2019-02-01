@@ -64,3 +64,17 @@ h2 {
     background-color: rgb(197, 2, 2);
     color:white;
 }
+.Message.ERR400,.Message.ERR404 {
+    animation:error 1s linear infinite;
+}
+@keyframes error {
+    0%{
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
