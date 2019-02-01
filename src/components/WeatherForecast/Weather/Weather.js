@@ -2,31 +2,41 @@ import React from 'react';
 import './Weather.css'
 
 const weather = props =>{
-
+    let messageClass = ["Message"]
+    const {date,main,temperature,sunrise,sunset,value,humidity,pressure,wind,city,error,errorStatus} = props.weather
 
     //Convert time in second to normal time
-    const sunrise = new Date(props.weather.sunrise*1000).toLocaleTimeString()
-    const sunset = new Date(props.weather.sunset*1000).toLocaleTimeString()
+    const sunr = new Date(sunrise*1000).toLocaleTimeString()
+    const suns = new Date(sunset*1000).toLocaleTimeString()
 
-    return (
-        <table className="Weather">
-            <caption><h2>Pogoda w mieście: <em>{props.weather.value}</em></h2></caption>
+    let content = <div className={messageClass}>
+    <p>Tutaj znajdzie się aktualna pogoda dla Twojego miasta.<br/><em>Podaj prawidłową nazwę miasta</em></p>
+    </div>
+
+    //Using this.state.value intead of this.state.city we
+    //invoke onchange event and then show content although
+    // we did not write full name city. We do not that, so have to use this.state.city and to display content if event submit occurs.
+
+    if(!error && city) {    
+        content = (
+            <table className="Weather">
+            <caption><h2>Pogoda w mieście: <em>{value}</em></h2></caption>
                 <tbody>
                     <tr>
                         <th colSpan="2">Dzień i godzina</th>
-                        <td>{props.weather.date}</td>
+                        <td>{date}</td>
                     </tr>
                     <tr>
                         <th colSpan="2">Wschód słońca</th>
-                        <td>{sunrise}</td>
+                        <td>{sunr}</td>
                     </tr>
                     <tr>
                         <th colSpan="2">Zachód słońca</th>
-                        <td>{sunset}</td>
+                        <td>{suns}</td>
                     </tr>
                     <tr>
                         <th colSpan="2">Warunki</th>
-                        <td>{props.weather.main}</td>
+                        <td>{main}</td>
                     </tr>
                     <tr className="Divider">
                         <th>Parametr</th>
@@ -36,26 +46,58 @@ const weather = props =>{
                     <tr>
                         <th>temperatura</th>
                         <td>&deg;C</td>
-                        <td>{props.weather.temperature}</td>
+                        <td>{temperature}</td>
                     </tr>
                     <tr>
                         <th>wilgotność</th>
                         <td>g/m<sup>3</sup></td>
-                        <td>{props.weather.humidity}</td>
+                        <td>{humidity}</td>
                     </tr>
                     <tr>
                         <th>ciśnienie</th>
                         <td>hPa</td>
-                        <td>{props.weather.pressure}</td>
+                        <td>{pressure}</td>
                     </tr>
                     <tr>
                         <th>wiatr</th>
                         <td>m/godz.</td>
-                        <td>{props.weather.wind}</td>
+                        <td>{wind}</td>
                     </tr>
                 </tbody>
             </table>
+        )
+    }
+    else {
+        if(errorStatus==="400"){
+            messageClass = ["Message","ERR"+errorStatus]
+            content = (
+                <div className={messageClass.join(' ')}><p>
+                <strong> ERROR {errorStatus} </strong>
+                <br/>
+                Miasto zawsze posiada nazwe, inną niż pusty łańcuch zanków.
+                </p></div>
+            )
+            
+        }
+        else if(errorStatus==="404") {
+            messageClass = ["Message","ERR"+errorStatus]
+            content = (
+                <div className={messageClass.join(' ')}><p>
+                <strong> ERROR {errorStatus} </strong>
+                <br/>
+                Nie ma w bazie miasta o podanej nazwie.
+                Wygoogluj to proszę :)
+                </p></div>
+            )
+        }
+    }
+
+    return (
+        <React.Fragment>
+            {content}
+        </React.Fragment>
     )
+        
 }
 
 export default weather

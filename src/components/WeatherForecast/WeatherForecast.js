@@ -21,7 +21,8 @@ class WeatherForecast extends Component {
             pressure:"",
             date:"",
             city:"",
-            error:""
+            error:"",
+            errorStatus:""
         }
     }
 
@@ -32,9 +33,9 @@ class WeatherForecast extends Component {
         .then(response=>{
             // console.log(response)
             if(response.ok){
-                return response
+                return response 
             }
-            throw Error("Something went wrong. KOD "+response.status)
+            throw Error(response.status)
         })
         .then(data=>data.json())
         .then(data=>{
@@ -51,12 +52,15 @@ class WeatherForecast extends Component {
                 sunset:data.sys.sunset,
                 pressure:data.main.pressure,
                 city:data.name,
-                error:false
+                error:false,
+                errorStatus:"200"
             })
         })
         .catch(error=>{
+            // console.log(error)
             this.setState({
-                error:true
+                error:true,
+                errorStatus:error.message
             })
         })
 
@@ -66,6 +70,10 @@ class WeatherForecast extends Component {
         this.setState({
             value:e.target.value
         })
+    }
+
+    shouldComponentUpdate(nextProps,nextState){
+        return true
     }
 
     // componentDidUpdate(prevProps,prevState){

@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     background-color:rgb(162, 206, 255);
+    padding-bottom:1rem;
 }
 .WeatherForecast form {
     align-self: stretch;
