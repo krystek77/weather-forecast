@@ -6,7 +6,7 @@ const weatherForm = props => {
 
     return (
         <form submit=""className="WeatherForm">
-            <input type="text" placeholder="Wpisz miast..."/>
+            <input type="text" placeholder="Wpisz miasto..."/>
             <Button btnClass="CheckWeather">Sprawdź pogodę</Button>
         </form>
     )

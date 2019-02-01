@@ -1,0 +1,39 @@
+.Weather {
+    font-size:1.4rem;
+    border-spacing: 0;
+    color:rgb(61, 61, 61);
+    margin-bottom:2rem;
+    box-shadow:2px 2px 2px rgba(0,0,0,0.2);
+    width: 60%;
+}
+h2 {
+    margin:0.5rem 0;
+    padding:1rem 0;
+    border-top:1px solid grey;
+    border-bottom:1px solid grey;
+}
+.Weather tr:nth-child(even) {
+    background-color:  rgb(41, 211, 41);
+}
+.Weather tr:nth-child(odd) {
+    background-color:  rgb(2, 184, 2);
+}
+.Weather td,.Weather th {
+    padding:0.8rem;
+    text-align: center;
+    
+}
+.Weather th {
+    text-align: left;
+    text-transform: capitalize;
+    font-size:1.4rem;
+    color:white;
+}
+.Weather tr.Divider {
+    background-color:rgb(87, 87, 87);
+}
+.Weather tr.Divider>th {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+}

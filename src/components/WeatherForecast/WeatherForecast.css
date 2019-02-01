@@ -1,0 +1,10 @@
+.WeatherForecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(162, 206, 255);
+}
+.WeatherForecast form {
+    align-self: stretch;
+}

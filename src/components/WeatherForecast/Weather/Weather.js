@@ -5,7 +5,7 @@ const weather = props =>{
 
     return (
         <table className="Weather">
-            <caption>Pogoda w mieście: Kielce</caption>
+            <caption><h2>Pogoda w mieście: <em>Kielce</em></h2></caption>
                 <tbody>
                     <tr>
                         <th colSpan="2">Dzień i godzina</th>
@@ -15,10 +15,10 @@ const weather = props =>{
                         <th colSpan="2">Warunki</th>
                         <td>clouds</td>
                     </tr>
-                    <tr>
-                        <td>Parametr</td>
-                        <td>Jednostka</td>
-                        <td>Wartość</td>
+                    <tr className="Divider">
+                        <th>Parametr</th>
+                        <th>Jednostka</th>
+                        <th>Wartość</th>
                     </tr>
                     <tr>
                         <th>temperatura</th>
