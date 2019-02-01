@@ -12,6 +12,14 @@ const weather = props =>{
                         <td>wtorek 10:00:11</td>
                     </tr>
                     <tr>
+                        <th colSpan="2">Wschód słońca</th>
+                        <td>7:00:10</td>
+                    </tr>
+                    <tr>
+                        <th colSpan="2">Zachód słońca</th>
+                        <td>16:00:34</td>
+                    </tr>
+                    <tr>
                         <th colSpan="2">Warunki</th>
                         <td>clouds</td>
                     </tr>
@@ -39,16 +47,6 @@ const weather = props =>{
                         <th>wiatr</th>
                         <td>m/godz.</td>
                         <td>100</td>
-                    </tr>
-                    <tr>
-                        <th>Wschód słońca</th>
-                        <td>-</td>
-                        <td>7:00:10</td>
-                    </tr>
-                    <tr>
-                        <th>Zachód słońca</th>
-                        <td>-</td>
-                        <td>16:00:34</td>
                     </tr>
                 </tbody>
             </table>

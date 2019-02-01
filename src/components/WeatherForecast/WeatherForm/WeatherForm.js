@@ -5,8 +5,12 @@ import Button from '../../Button/Button';
 const weatherForm = props => {
 
     return (
-        <form submit=""className="WeatherForm">
-            <input type="text" placeholder="Wpisz miasto..."/>
+        <form onSubmit={props.submit} className="WeatherForm">
+            <input 
+                value={props.value}
+                onChange={props.change}
+                type="text" 
+                placeholder="Wpisz miasto..."/>
             <Button btnClass="CheckWeather">Sprawdź pogodę</Button>
         </form>
     )
