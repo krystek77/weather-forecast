@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Weather.css'
 
-const weather = props =>{
+
+class Weather extends Component {
+   
+    shouldComponentUpdate(nextProps,nextState){
+        console.log("Should component updated")
+        console.log(nextProps.weather.city,this.props.weather.city)
+        return nextProps.weather.city!==this.props.weather.city
+    }
+
+    render(){
+    console.log("render")
     let messageClass = ["Message"]
-    const {date,main,temperature,sunrise,sunset,value,humidity,pressure,wind,city,error,errorStatus} = props.weather
+    const {date,main,temperature,sunrise,sunset,value,humidity,pressure,wind,city,error,errorStatus} = this.props.weather
 
     //Convert time in second to normal time
     const sunr = new Date(sunrise*1000).toLocaleTimeString()
@@ -91,13 +101,12 @@ const weather = props =>{
             )
         }
     }
-
-    return (
-        <React.Fragment>
-            {content}
-        </React.Fragment>
-    )
-        
+        return(
+            <React.Fragment>
+                {content}
+            </React.Fragment>
+        )
+    }
 }
 
-export default weather
+export default Weather

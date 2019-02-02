@@ -73,10 +73,6 @@ class WeatherForecast extends Component {
         })
     }
 
-    shouldComponentUpdate(nextProps,nextState){
-        return true
-    }
-
     // componentDidUpdate(prevProps,prevState){
     //     console.log({prevProps})
     //     console.log({prevState})
