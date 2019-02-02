@@ -7,7 +7,9 @@ class Weather extends Component {
     shouldComponentUpdate(nextProps,nextState){
         console.log("Should component updated")
         console.log(nextProps.weather.city,this.props.weather.city)
-        return nextProps.weather.city!==this.props.weather.city
+        console.log(nextProps.weather.error,this.props.weather.error)
+        return !(nextProps.weather.error===this.props.weather.error) ||
+        nextProps.weather.city!==this.props.weather.city
     }
 
     render(){
