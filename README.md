@@ -6,3 +6,6 @@ and exercice from "Aplikacja pogodowa w React" on Samuraj Programowania channel 
 ## Added more styles and corrected re-rendering optimalization
 
 By shouldComponentUpdate() method from lifecycle statefull component.
+
+### After download
+In your folder you need write in CLI rule: npm install to run developer server
